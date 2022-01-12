@@ -53,7 +53,14 @@ def generateRollingAverage(solveTimes):
             averaged.append(30)
         count += 1
     return averaged
-        
+
+def generateCompleteAverage(solveTimes):
+    averaged = []
+    current = []
+    for i in solveTimes:
+        current.append(i)
+        averaged.append(sum(current)/len(current))
+    return averaged
 
 def graph(solveTimes):
 
@@ -65,6 +72,7 @@ def graph(solveTimes):
 
     plt.plot(solveTimes)
     plt.plot(generateRollingAverage(solveTimes))
+    plt.plot(generateCompleteAverage(solveTimes), color='red')
 
     #solveTimes = np.asarray(solveTimes)
 
